@@ -1,6 +1,6 @@
 <section>
-    <div class="hero">
-        <div class="hero-text flex-col">
+    <div class="hero flex justify-between w-full">
+        <div class="hero-text flex-col text-2xl font-bold">
             <h3>{{ hero.speed }}</h3>
             <h3>{{ hero.quality }}</h3>
             <h3>{{ hero.reliability }}</h3>
@@ -262,38 +262,40 @@
 </section>
 
 <section>
-    <div class="title-lg">{{ faq.title }}</div>
-    <div class="paragraph">{{ faq.paragraph }}</div>
+    <div class="title lg">{{ faq.title }}</div>
+    <div class="paragraph text-center">{{ faq.paragraph }}</div>
 
-    <div class="breadcrumbs">
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
-        </div>
-        
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
+    <div class="collapsibles">
+        <div class="collapsible active">
+            <div class="collapsible-top flex justify-between">
+                <div class="collapsible-title">Lorem Ipsum</div>
+                <img src="/wp-content/uploads/2024/09/Icon.svg" class="collapser active">
+            </div>
+            <div class="collapsible-paragraph">Dolor Sit Amet</div>
         </div>
 
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
+        <div class="collapsible">
+            <div class="collapsible-top flex justify-between">
+                <div class="collapsible-title">Lorem Ipsum</div>
+                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
+            </div>
+            <div class="collapsible-paragraph">Dolor Sit Amet</div>
         </div>
 
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
+        <div class="collapsible">
+            <div class="collapsible-top flex justify-between">
+                <div class="collapsible-title">Lorem Ipsum</div>
+                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
+            </div>
+            <div class="collapsible-paragraph">Dolor Sit Amet</div>
         </div>
 
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
-        </div>
-
-        <div class="breadcrumb active">
-            <div class="breadcrumb-title"></div>
-            <div class="breadcrumb-paragraph"></div>
+        <div class="collapsible">
+            <div class="collapsible-top flex justify-between">
+                <div class="collapsible-title">Lorem Ipsum</div>
+                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
+            </div>
+            <div class="collapsible-paragraph">Dolor Sit Amet</div>
         </div>
     </div>
 </section>
@@ -302,11 +304,11 @@
     <div class="title-lg">{{ blog.title }}</div>
 
     <div class="posts">
-        <div class="post">
-            <div class="post-img"></div>
-            <div class="post-title">{{ blog.post1.title }}</div>
+        <div class="post flex flex-col">
+            <img src="/wp-content/uploads/2024/09/Image-1.svg" class="post-image">
+            <div class="post-title font-medium text-lg">{{ blog.post1.title }}</div>
             <div class="post-desc">{{ blog.post1.desc }}</div>
-            <div class="post-read-more">{{ blog.post1.readMore }}</div>
+            <div class="post-read-more">{{ blog.post1.readMore }} <img src="/wp-content/uploads/2024/09/Arrow.svg" /></div>
         </div>
 
         <div class="post">
