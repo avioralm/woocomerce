@@ -77,7 +77,7 @@
 		.title.left {
 			font-size: x-large;
 			font-weight: bold;
-			text-align: unset;
+			text-align: start;
 			margin-bottom: 12px;
 		}
 		
@@ -299,6 +299,10 @@
 			
 			.collapsible {
 				max-width: 700px;
+			}
+			
+			.collapsible-paragraph {
+				text-align: start;
 			}
 		}
 	</style>
