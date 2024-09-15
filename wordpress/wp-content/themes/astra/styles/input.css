@@ -1,0 +1,8 @@
+/* The WordPress theme file header goes here. */
+
+@tailwind base;
+
+/* All of the existing CSS goes here. */
+
+@tailwind components;
+@tailwind utilities;
