@@ -220,6 +220,18 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			display: flex;
 			gap: 8px;
 		}
+
+		.feature-icon img {
+			width: 32px;
+		}
+
+		.color-primary {
+			color: #F28B30;
+		}
+
+		.color-dark {
+			color: #014051;
+		}
 		
 		@media only screen and (max-width: 576px) {
 			section:not(.clear) {
@@ -240,10 +252,6 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			.hero-section .hero {
 				max-width: 80%;
 				margin: 0 auto;
-			}
-			
-			.feature-icon img {
-				width: 32px;
 			}
 			
 			.feature-text {
@@ -306,6 +314,14 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			.collapsible-paragraph {
 				text-align: start;
 			}
+
+			.scooters-hero {
+				background: url('/wp-content/uploads/2024/09/section.svg');
+			}
+
+			.md\:not-fit {
+				min-height: 100vh!important;
+			}
 		}
 		
 		#content .ast-container {
@@ -354,6 +370,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
                 ) );
             ?>
         </div>
+		<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> – <?php echo WC()->cart->get_cart_total(); ?></a>
     </nav>
 
 

@@ -13,49 +13,49 @@
 
         <div class="hero-features flex flex-col gap-y-2">
             <div class="features-container flex flex-col gap-y-2 md:flex-row md:gap-x-2">
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/kilogram_5009306.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/kilogram_5009306.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
 
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/charging_5945741.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/charging_5945741.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
 
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/dashboard_8078295.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/dashboard_8078295.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
             </div>
 
             <div class="features-container flex flex-col gap-y-2 md:flex-row md:gap-x-2">
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
 
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/tire_950472.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/tire_950472.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
 
-            <div class="feature flex gap-x-1 items-center md:flex-col">
-                <div class="feature-icon">
-                    <img src="/wp-content/uploads/2024/09/road_6088994.svg" />
+                <div class="feature flex gap-x-1 items-center md:flex-col">
+                    <div class="feature-icon">
+                        <img src="/wp-content/uploads/2024/09/road_6088994.svg" />
+                    </div>
+                    <div class="feature-text">{{ hero.ft1 }}</div>
                 </div>
-                <div class="feature-text">{{ hero.ft1 }}</div>
-            </div>
             </div>
 
             <button class="buy-button font-bold bg-primary mt-2 rounded-full py-2 px-4 md:self-start">Buy</button>
@@ -476,10 +476,5 @@
         </div>
     </div>
 </section>
-<!-- /wp:html -->
-
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
 
 <?php get_footer(); ?> 
