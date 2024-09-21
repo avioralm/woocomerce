@@ -4,14 +4,14 @@
 
 <!-- wp:html -->
 <section class="hero-section md:flex md:items-center">
-    <div class="hero flex justify-between w-full md:flex-col md:gap-y-2">
-        <div class="hero-text flex flex-col text-2xl font-bold md:flex-row md:gap-x-2">
-            <h3>Speed</h3>
-            <h3>Quality</h3>
-            <h3>Reliability</h3>
+    <div class="hero flex justify-between w-4/5 mx-auto md:w-full md:flex-col md:gap-y-2">
+        <div class="hero-text mt-10 md:mt-0 flex flex-col font-bold gap-y-3 md:flex-row md:gap-x-2">
+            <h3 class="text-4xl">Speed</h3>
+            <h3 class="text-4xl">Quality</h3>
+            <h3 class="text-4xl">Reliability</h3>
         </div>
 
-        <div class="hero-features flex flex-col gap-y-2">
+        <div class="hero-features mt-10 md:mt-0 flex flex-col gap-y-2">
             <div class="features-container flex flex-col gap-y-2 md:flex-row md:gap-x-2">
                 <div class="feature flex gap-x-1 items-center md:flex-col">
                     <div class="feature-icon">

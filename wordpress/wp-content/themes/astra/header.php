@@ -251,6 +251,10 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			.xfeatures {
 				padding: 0 32px;
 			}
+
+			nav.main-menu {
+				background-color: white!important;
+			}
 		}
 		
 		@media only screen and (min-width: 576px) {
@@ -390,6 +394,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 
 		nav.main-menu {
 			position: fixed;
+			top: 0;
 			width: 100%;
 			z-index: 999999;
 			background-color: rgba(255, 255, 255, 0.5);
@@ -398,10 +403,20 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 </head>
 
 <body <?php astra_schema_body(); ?> <?php body_class(); ?>>
-    <nav class="main-menu flex flex-col px-8 py-4 gap-y-4">
-        <div class="nav-top flex justify-between items-center">
-            <?php astra_logo(); ?>
-			<div class="flex gap-2">
+    <nav class="main-menu flex flex-col px-4 md:px-8 py-4 gap-y-4">
+        <div class="nav-top flex md:gap-0 justify-between items-center">
+			<div class="flex gap-4 items-center">
+				<img src="/wp-content/uploads/2024/09/Group-1171275085.svg" class="md:hidden">
+							<?php astra_logo(); ?>
+			</div>
+			<a class="cart-customlocation md:hidden" href="<?php echo wc_get_cart_url(); ?>">
+				<div class="bg-primary flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
+					<img src="/wp-content/uploads/2024/09/shopping-cart-1-1.svg" />
+					Cart
+				</div>
+			</a>
+
+			<div class="gap-2 hidden md:flex">
 				<div class="flex items-center"><? wpml_floating_language_switcher(); ?></div>
 				<a class="account" href="<?php echo wc_get_cart_url(); ?>">
 					<div class="bg-dark flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
@@ -417,7 +432,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 				</a>
 			</div>
         </div>
-        <div class="nav-bottom flex gap-4 list-none text-black">
+        <div class="nav-bottom hidden md:flex gap-4 list-none text-black">
             <?php
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
