@@ -399,6 +399,14 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			z-index: 999999;
 			background-color: rgba(255, 255, 255, 0.5);
 		}
+
+		.woocommerce-js .quantity .qty {
+			display: none;
+		}
+
+		.woocommerce-js div.product form.cart .button.single_add_to_cart_button {
+			font-size: smaller;
+		}
 	</style>
 </head>
 
@@ -418,7 +426,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 
 			<div class="gap-2 hidden md:flex">
 				<div class="flex items-center"><? wpml_floating_language_switcher(); ?></div>
-				<a class="account" href="<?php echo wc_get_cart_url(); ?>">
+				<a class="account" href="/?page_id=9">
 					<div class="bg-dark flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
 						<img src="/wp-content/uploads/2024/09/Frame-8-1.svg" />
 						<? echo is_user_logged_in() ? 'My Account' : 'Login'; ?>

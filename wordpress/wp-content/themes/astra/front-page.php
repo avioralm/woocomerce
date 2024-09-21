@@ -6,9 +6,9 @@
 <section class="hero-section md:flex md:items-center">
     <div class="hero flex justify-between w-4/5 mx-auto md:w-full md:flex-col md:gap-y-2">
         <div class="hero-text mt-10 md:mt-0 flex flex-col font-bold gap-y-3 md:flex-row md:gap-x-2">
-            <h3 class="text-4xl">Speed</h3>
-            <h3 class="text-4xl">Quality</h3>
-            <h3 class="text-4xl">Reliability</h3>
+            <h3 class="text-4xl md:text-2xl">Speed</h3>
+            <h3 class="text-4xl md:text-2xl">Quality</h3>
+            <h3 class="text-4xl md:text-2xl">Reliability</h3>
         </div>
 
         <div class="hero-features mt-10 md:mt-0 flex flex-col gap-y-2">
@@ -71,7 +71,43 @@
     </div>
 
     <div class="products flex flex-col gap-y-4 md:flex-row md:justify-evenly">
-        <div class="product flex flex-col rounded-md">
+        <?php
+            $query_args = array(
+                'featured' => true,  
+                'numberposts' => 3,
+                'category' => array( 'Hoodies' ),
+            );
+            $products = wc_get_products( $query_args );
+
+
+            foreach ($products as $product) {
+                $image_id  = $product->get_image_id();
+                $is_coming_soon = count($product->tag_ids) != 0;
+                ?>
+                <div class="product flex flex-col rounded-md">
+                    <div class="product-image relative">
+                        <img src="<?= wp_get_attachment_image_url( $image_id, 'full' ) ?>" />
+                        <?
+                            if($is_coming_soon) {
+                                ?>
+                                <img class="absolute top-0" src="/wp-content/uploads/2024/09/Group-1171275041.svg" />
+                                <?
+                            }
+                        ?>
+                        <div class="product-like-button"></div>
+                    </div>
+                    <div class="product-details bg-black flex justify-between items-center">
+                        <div class="product-bottom-left flex flex-col gap-y-2">
+                            <div class="product-name font-bold"><?= $product->name; ?></div>
+                            <div class="product-price text-gray-400"><?= $product->price.get_woocommerce_currency_symbol(); ?></div>
+                        </div>
+                        <? woocommerce_simple_add_to_cart(); ?>
+                    </div>
+                </div>
+                <?
+            }
+        ?>
+    <!--    <div class="product flex flex-col rounded-md">
             <div class="product-image relative">
                 <img src="/wp-content/uploads/2024/09/Group-1171275040.svg" />
                 <div class="product-like-button"></div>
@@ -119,7 +155,7 @@
                     Buy
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="h-20 md:hidden"></div>
     <img class="absolute bottom-0 right-0 rotate-270 md:hidden" src="/wp-content/uploads/2024/09/Group-1171275044.svg" />

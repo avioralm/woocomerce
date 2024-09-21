@@ -614,14 +614,18 @@ video {
   top: 0px;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.left-0 {
+  left: 0px;
 }
 
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .-mt-2 {
@@ -634,6 +638,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-16 {
@@ -654,10 +662,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .block {
@@ -681,12 +685,24 @@ video {
   height: fit-content;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
 .w-1 {
   width: 0.25rem;
 }
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-fit {
@@ -698,8 +714,8 @@ video {
   width: 100%;
 }
 
-.w-4\/5 {
-  width: 80%;
+.w-1\/2 {
+  width: 50%;
 }
 
 .list-none {
@@ -730,12 +746,12 @@ video {
   justify-content: space-evenly;
 }
 
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-4 {
@@ -761,16 +777,16 @@ video {
   row-gap: 0.5rem;
 }
 
+.gap-y-3 {
+  row-gap: 0.75rem;
+}
+
 .gap-y-4 {
   row-gap: 1rem;
 }
 
 .gap-y-8 {
   row-gap: 2rem;
-}
-
-.gap-y-3 {
-  row-gap: 0.75rem;
 }
 
 .self-end {
@@ -849,11 +865,6 @@ video {
   padding-bottom: 1rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -899,6 +910,11 @@ video {
   font-weight: 500;
 }
 
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -909,9 +925,8 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+.wp-list-table.fixed {
+  position: relative!important;
 }
 
 @media (min-width: 768px) {
@@ -1011,17 +1026,22 @@ video {
     padding-right: 4rem;
   }
 
-  .md\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
+  .md\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   .md\:text-start {
     text-align: start;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }

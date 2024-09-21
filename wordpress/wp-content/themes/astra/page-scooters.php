@@ -9,7 +9,7 @@
             <div class="font-bold text-2xl hero-title">Elevate Your Ride: <br> Discover the Next Generation of Electric Scooters</div>
             <div class="hero-subtitle">Crafted with cutting-edge technology and premium materials, <br> our electric scooter delivers an unmatched, efficient, and safe riding experience.</div>
         </div>
-        <img style="max-width: 300px;" src="/wp-content/uploads/2024/09/Group-1171275083-1.png" alt="" class="hidden md:block">
+        <img style="max-width: 370px;" src="/wp-content/uploads/2024/09/Group-1171275083-1.png" alt="" class="hidden md:block">
         <img src="/wp-content/uploads/2024/09/Group-1171275068-1.svg" alt="" class="hero-img md:hidden">
     </section>
 
@@ -96,11 +96,26 @@
 
     </section>
 
-    <section class="clear" style="background: linear-gradient(180deg, #014051, #027B9B);">
-        <div class="text-center text-3xl font-bold pt-8 color-primary">Unyielding strength With Reliable Performance</div>
-        <img src="/wp-content/uploads/2024/09/Group-1171275075-2.svg" class="hero2-img" />
-        <div class="hero2-description pb-8 text-white px-8">
+    <section class="clear relative" style="background: linear-gradient(180deg, #014051, #027B9B);">
+        <div class="text-center text-3xl font-bold pt-8 color-primary md:hidden">Unyielding strength With Reliable Performance</div>
+
+        <img src="/wp-content/uploads/2024/09/Group-1171275075-2.svg" class="hero2-img md:hidden" />
+        <img src="/wp-content/uploads/2024/09/Group-3.svg" class="hero2-img hidden md:block absolute top-0 left-0" />
+        <img src="/wp-content/uploads/2024/09/image-30-2.svg" class="hero2-img hidden md:block absolute bottom-0 left-0" />
+
+        <div class="hero2-description pb-8 text-white px-8 md:hidden">
         RidePed-X proudly presents our advanced electric scooter, crafted with next-generation materials and cutting-edge manufacturing technologies. Built with a combination of lightweight yet durable carbon fiber and aerospace-grade aluminum 6065, this scooter promises unparalleled strength and long-lasting durability. For the first time, we’ve integrated advanced CNC machining technology, ensuring each component is precisely cut and perfectly fitted for optimal performance and phenomenal accuracy in the final product.
+        </div>
+
+        <div class="hidden md:flex justify-between h-screen items-center">
+            <div class="texts flex flex-col gap-y-4 w-1/2">
+                <div class="text-3xl font-bold pt-8 px-8 color-primary">Unyielding strength With Reliable Performance</div>
+                <div class="hero2-description pb-8 text-white px-8">
+                    RidePed-X proudly presents our advanced electric scooter, crafted with next-generation materials and cutting-edge manufacturing technologies. Built with a combination of lightweight yet durable carbon fiber and aerospace-grade aluminum 6065, this scooter promises unparalleled strength and long-lasting durability. For the first time, we’ve integrated advanced CNC machining technology, ensuring each component is precisely cut and perfectly fitted for optimal performance and phenomenal accuracy in the final product.
+                </div>
+            </div>
+
+            <img style="max-width: 530px;" src="/wp-content/uploads/2024/09/Group-1171275087.svg" class="hero2-img hidden md:block absolute top-0 right-0 w-1/2" />
         </div>
     </section>
 
