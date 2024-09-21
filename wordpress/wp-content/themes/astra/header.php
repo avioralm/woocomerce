@@ -58,6 +58,11 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			background-color: #F28B30;
 			color: white;
 		}
+
+		.bg-dark {
+			background-color: #2D2D30;
+			color: white;
+		}
 		
 		.bg-secondary {
 			background-color: #B1B1B1;
@@ -67,6 +72,11 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			background-image: url('/wp-content/uploads/2024/09/Group-1171275038.svg');
 			background-size: contain;
 			background-repeat: no-repeat;
+		}
+
+		html[dir="rtl"] .hero-section {
+			background-image: url('/wp-content/uploads/2024/09/Group-1171275058-1.svg');
+			background-position-x: 0;
 		}
 		
 		.title {
@@ -276,6 +286,11 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 				background-size: cover;
 				background-repeat: no-repeat;
 			}
+
+			html[dir="rtl"] .hero2 {
+				background-image: url('/wp-content/uploads/2024/09/Group-1171275084.svg');
+				background-position-x: 0;
+			}
 			
 			.mdhscreen {
 				min-height: 100vh;
@@ -351,15 +366,58 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			left:0;
 			right:0;
 		}
+
+		.menu-link {
+			color: black;
+			font-size: small;
+		}
+
+		.current-menu-item .menu-link {
+			color: #F28B30;
+		}
+
+		.wpml-ls-legacy-dropdown {
+			width: fit-content;
+		}
+
+		.wpml-ls-legacy-dropdown a.wpml-ls-item-toggle, .wpml-ls-legacy-dropdown .wpml-ls-sub-menu a {
+			border: none;
+		}
+		
+		.wpml-ls-legacy-dropdown .wpml-ls-sub-menu a {
+			border-bottom: 1px rgb(51, 65, 85) solid;
+		}
+
+		nav.main-menu {
+			position: fixed;
+			width: 100%;
+			z-index: 999999;
+			background-color: rgba(255, 255, 255, 0.5);
+		}
 	</style>
 </head>
 
 <body <?php astra_schema_body(); ?> <?php body_class(); ?>>
-    <nav class="flex flex-col">
-        <div class="nav-top">
+    <nav class="main-menu flex flex-col px-8 py-4 gap-y-4">
+        <div class="nav-top flex justify-between items-center">
             <?php astra_logo(); ?>
+			<div class="flex gap-2">
+				<div class="flex items-center"><? wpml_floating_language_switcher(); ?></div>
+				<a class="account" href="<?php echo wc_get_cart_url(); ?>">
+					<div class="bg-dark flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
+						<img src="/wp-content/uploads/2024/09/Frame-8-1.svg" />
+						<? echo is_user_logged_in() ? 'My Account' : 'Login'; ?>
+					</div>
+				</a>
+				<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>">
+					<div class="bg-primary flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
+						<img src="/wp-content/uploads/2024/09/shopping-cart-1-1.svg" />
+						Cart
+					</div>
+				</a>
+			</div>
         </div>
-        <div class="nav-bottom flex gap-2 list-none">
+        <div class="nav-bottom flex gap-4 list-none text-black">
             <?php
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
@@ -370,7 +428,6 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
                 ) );
             ?>
         </div>
-		<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> – <?php echo WC()->cart->get_cart_total(); ?></a>
     </nav>
 
 

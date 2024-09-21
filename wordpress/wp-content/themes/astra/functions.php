@@ -185,3 +185,12 @@ require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
 
 wp_enqueue_style('my-style', get_template_directory_uri() . '/styles/output.css');
+
+add_action('wp_footer', 'wpml_floating_language_switcher'); 
+  
+function wpml_floating_language_switcher() { 
+   echo '<div class="wpml-floating-language-switcher">';
+	   //PHP action to display the language switcher (see https://wpml.org/documentation/getting-started-guide/language-setup/language-switcher-options/#using-php-actions)
+	   do_action('wpml_add_language_selector');
+   echo '</div>'; 
+}
