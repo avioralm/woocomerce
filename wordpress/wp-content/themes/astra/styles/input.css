@@ -7,6 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.wp-list-table.fixed {
+.wp-list-table.fixed, .widefat.fixed {
     position: relative!important;
 }

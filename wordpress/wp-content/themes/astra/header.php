@@ -199,13 +199,80 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			border-radius: 10px;
 		}
 		
-		.collapsible.active {
-			background-color: #F9FAFB;
-			border: solid 2px #F28B30;
+		details {
+			font-size: 1rem;
+			margin: 0 auto;
+			width: 100%;
+			background: #fff;
+			border-radius: 8px;
+			position: relative;
+			width: 500px;
+			padding-bottom: 1rem;
+			border-top: 1px solid #e2e8f0;
 		}
-		
-		.collapsible-title {
-			font-weight: 500;
+
+		details[open] {
+			background-color: #F9FAFB;
+			border-top: none;
+			border: solid 2px #F28B30;
+			margin-bottom: 1rem;
+		}
+
+		details .summary-title {
+			font-size: large;
+			user-select: none;
+		}
+
+		details:hover {
+			cursor: pointer;
+		}
+
+		details .summary-content {
+			cursor: default;
+			padding: 0.3em 1em;
+			font-weight: 300;
+			line-height: 1.5;
+		}
+
+		details summary {
+			list-style: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1em;
+			padding-bottom: 0.2em;
+		}
+
+		details .summary-chevron-down {
+			pointer-events: none;
+			position: absolute;
+			top: 1.2em;
+			right: 1em;
+			background: #F9FAFB;
+		}
+
+		details summary:focus {
+			outline: none;
+		}
+
+		details summary:hover .summary-chevron-up svg {
+			opacity: 1;
+		}
+
+		details .summary-chevron-up svg {
+			opacity: 0.5;
+		}
+
+		details .summary-chevron-up svg, details .summary-chevron-down svg {
+			display: block;
+		}
+
+		details summary::-webkit-details-marker {
+			display: none;
+		}	
+
+		.summary-title {
+			font-weight: 600;
 		}
 		
 		.collapsible-paragraph {
@@ -255,6 +322,10 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			nav.main-menu {
 				background-color: white!important;
 			}
+			
+			#primary {
+				padding: 0 24px;
+			}
 		}
 		
 		@media only screen and (min-width: 576px) {
@@ -275,6 +346,10 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			.products .product, .parts .part, .highlights .highlight {
 				width: 30%;
 				max-width: 330px;
+			}
+
+			.title.nomb-md {
+				margin-bottom: 0;
 			}
 			
 			img.md\:w-1\/2 {
@@ -365,7 +440,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			z-index:999;
 			margin:0 auto;
 			width:100%;
-			position:fixed;
+			/* position:fixed; */
 			top:0;
 			left:0;
 			right:0;
@@ -406,6 +481,23 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 
 		.woocommerce-js div.product form.cart .button.single_add_to_cart_button {
 			font-size: smaller;
+		}
+
+		.entry-content[ast-blocks-layout] > * {
+			max-width: 100%!important;
+		}
+
+		.entry-content[ast-blocks-layout] > .alignwide {
+			margin: 0!important;
+		}
+
+		#primary {
+			padding: 0 32px;
+			margin-top: 75px!important;
+		}
+
+		.wc-block-components-totals-coupon .wc-block-components-panel__button {
+			padding-top: auto;
 		}
 	</style>
 </head>
