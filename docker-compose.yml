@@ -25,3 +25,18 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+
+  wpcli:
+    container_name: wp-cli
+    depends_on:
+      - wordpress
+    image: wordpress:cli
+    user: 1000:1000
+    command: tail -f /dev/null
+    volumes:
+      - ./wordpress:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
