@@ -571,9 +571,10 @@
                     <div class="product-details bg-black flex justify-between items-center">
                         <div class="product-bottom-left flex flex-col gap-y-2">
                             <div class="product-name font-bold"><?php echo e($product->name); ?></div>
-                            <div class="product-price text-gray-400"><?php echo e($product->price.get_woocommerce_currency_symbol()); ?></div>
+                            <div class="product-price text-gray-400"><?php echo $product->price.get_woocommerce_currency_symbol(); ?></div>
                         </div>
-                        <? woocommerce_simple_add_to_cart(); ?>
+                        <?php echo woocommerce_simple_add_to_cart(); ?>
+
                     </div>
                 </div>
 

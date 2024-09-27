@@ -108,55 +108,6 @@
                 <?
             }
         ?>
-    <!--    <div class="product flex flex-col rounded-md">
-            <div class="product-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275040.svg" />
-                <div class="product-like-button"></div>
-            </div>
-            <div class="product-details bg-black flex justify-between items-center">
-                <div class="product-bottom-left flex flex-col gap-y-2">
-                    <div class="product-name font-bold">Rideped-X 1</div>
-                    <div class="product-price text-gray-400">300$</div>
-                </div>
-                <button class="product-buy-button bg-secondary rounded-lg py-1 px-2">
-                    Buy
-                </button>
-            </div>
-        </div>
-
-        <div class="product flex flex-col rounded-md">
-            <div class="product-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275040.svg" />
-                <img class="absolute top-0" src="/wp-content/uploads/2024/09/Group-1171275041.svg" />
-                <div class="product-like-button"></div>
-            </div>
-            <div class="product-details bg-black flex justify-between items-center">
-                <div class="product-bottom-left flex flex-col gap-y-2">
-                    <div class="product-name font-bold">Rideped-X 2</div>
-                    <div class="product-price text-gray-400">500$</div>
-                </div>
-                <button class="product-buy-button bg-secondary rounded-lg py-1 px-2">
-                    Buy
-                </button>
-            </div>
-        </div>
-
-        <div class="product flex flex-col rounded-md">
-            <div class="product-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275040.svg" />
-                <img class="absolute top-0" src="/wp-content/uploads/2024/09/Group-1171275041.svg" />
-                <div class="product-like-button"></div>
-            </div>
-            <div class="product-details bg-black flex justify-between items-center">
-                <div class="product-bottom-left flex flex-col gap-y-2">
-                    <div class="product-name font-bold">Rideped-X 3</div>
-                    <div class="product-price text-gray-400">600$</div>
-                </div>
-                <button class="product-buy-button bg-secondary rounded-lg py-1 px-2">
-                    Buy
-                </button>
-            </div>
-        </div> -->
     </div>
     <div class="h-20 md:hidden"></div>
     <img class="absolute bottom-0 right-0 rotate-270 md:hidden" src="/wp-content/uploads/2024/09/Group-1171275044.svg" />
@@ -214,82 +165,57 @@
 <!-- /wp:html -->
 
 <!-- wp:html -->
-<section class="xfeatures fit md:flex md:items-center md:flex-row-reverse md:justify-center md:gap-x-24 md:relative">
-    <div>
-<div class="title left mt-4">
-        Features
-    </div>
 
-    <div class="x-features flex flex-col gap-y-2">
-        <div class="x-feature flex items-center gap-x-2">
-                <div class="x-feature-icon">
-                    <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+<?php
+    $query_args = array(
+        'numberposts' => 1,
+        'category' => 'Scooters',
+    );
+    $products = wc_get_products( $query_args );
+
+
+    foreach ($products as $product) {
+        $image_id  = $product->get_image_id();
+        $is_coming_soon = count($product->tag_ids) != 0;
+        ?>
+        <section class="xfeatures fit md:flex md:items-center md:justify-center md:gap-x-24 md:relative">
+            <div class="w-1/3">
+                <div class="title left mt-4">
+                    <?= $product->name ?>
                 </div>
-            <div class="x-feature-text">Safer than evert</div>
-        </div>
-        
-        <div class="x-feature flex items-center gap-x-2">
-            <div class="x-feature-icon">
-                <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
-            </div>
-            <div class="x-feature-text">Futuristic Tech</div>
-        </div>
-        <div class="x-feature flex items-center gap-x-2">
-             <div class="x-feature-icon">
-                <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
-            </div>
-            <div class="x-feature-text">Modular Design</div>
-        </div>
-    </div>
 
-    <div class="x-price md:text-start">200$</div>
-
-    <div class="buy-button bg-primary rounded-lg py-1 px-2 w-fit">Buy</div>
-
-    </div>
-
-    <img src="/wp-content/uploads/2024/09/image-ba957477-4a1c-42e5-b7ec-441f82d4d6d7.svg" class="x-image md:w-1/2" />
-    <img class="absolute bottom-0 right-0 rotate-270 hidden md:block" src="/wp-content/uploads/2024/09/Group-1171275044.svg" />
-</section>
-
-
-<div class="w-full h-fit relative">
-<section class="xfeatures fit md:flex md:items-center md:justify-center md:gap-x-24 md:relative">
-    <div>
-    <div class="title left mt-4">
-        Features
-    </div>
-
-    <div class="x-features flex flex-col gap-y-2">
-        <div class="x-feature flex items-center gap-x-2">
-                <div class="x-feature-icon">
-                    <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                <div class="x-features flex flex-col gap-y-4">
+                    <div class="x-feature flex items-start gap-x-2">
+                            <div class="x-feature-icon">
+                                <img class="w-8 min-w-8" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                            </div>
+                        <div class="x-feature-text text-sm"><?php echo get_field('annotation_1', $product->id) ?></div>
+                    </div>
+                    
+                    <div class="x-feature flex items-start gap-x-2">
+                        <div class="x-feature-icon">
+                            <img class="w-8 min-w-8" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                        </div>
+                        <div class="x-feature-text text-sm"><?php echo get_field('annotation_2', $product->id) ?></div>
+                    </div>
+                    <div class="x-feature flex items-start gap-x-2">
+                        <div class="x-feature-icon">
+                            <img class="w-8 min-w-8" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+                        </div>
+                        <div class="x-feature-text text-sm"><?php echo get_field('annotation_3', $product->id) ?></div>
+                    </div>
                 </div>
-            <div class="x-feature-text">Safer Than Ever</div>
-        </div>
-        
-        <div class="x-feature flex items-center gap-x-2">
-            <div class="x-feature-icon">
-                <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
+
+                <div class="x-price md:text-start"><?= $product->price.get_woocommerce_currency_symbol(); ?></div>
+
+                <? woocommerce_simple_add_to_cart(); ?>
             </div>
-            <div class="x-feature-text">Futuristic Tech</div>
-        </div>
-        <div class="x-feature flex items-center gap-x-2">
-             <div class="x-feature-icon">
-                <img class="w-10" src="/wp-content/uploads/2024/09/tire_6955616.svg" />
-            </div>
-            <div class="x-feature-text">Modular Design</div>
-        </div>
-    </div>
 
-    <div class="x-price md:text-start">400$</div>
-
-    <div class="buy-button bg-primary rounded-lg py-1 px-2 w-fit">Buy</div>
-    </div>
-
-    <img src="/wp-content/uploads/2024/09/image-ba957477-4a1c-42e5-b7ec-441f82d4d6d7.svg" class="x-image md:w-1/2" />
-</section>
-</div>
+            <img src="/wp-content/uploads/2024/09/image-ba957477-4a1c-42e5-b7ec-441f82d4d6d7.svg" class="x-image md:w-1/2" />
+        </section>
+        <?
+    }
+?>
 <!-- /wp:html -->
 
 <!-- wp:html -->

@@ -206,6 +206,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			background: #fff;
 			border-radius: 8px;
 			position: relative;
+			max-width: 90vw;
 			width: 500px;
 			padding-bottom: 1rem;
 			border-top: 1px solid #e2e8f0;
