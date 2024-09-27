@@ -1,2 +1,0 @@
-<?= \Roots\view('woocommerce.single-product.add-to-cart.simple', $data ?? get_defined_vars())->render(); ?>
-<?php /**PATH /var/www/html/wp-content/themes/rideped/resources/views/woocommerce/single-product/add-to-cart/simple.blade.php ENDPATH**/ ?>
