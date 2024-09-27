@@ -179,7 +179,7 @@
         $is_coming_soon = count($product->tag_ids) != 0;
         ?>
         <section class="xfeatures fit md:flex md:items-center md:justify-center md:gap-x-24 md:relative">
-            <div class="w-1/3">
+            <div class="md:w-1/3">
                 <div class="title left mt-4">
                     <?= $product->name ?>
                 </div>
@@ -211,7 +211,7 @@
                 <? woocommerce_simple_add_to_cart(); ?>
             </div>
 
-            <img src="/wp-content/uploads/2024/09/image-ba957477-4a1c-42e5-b7ec-441f82d4d6d7.svg" class="x-image md:w-1/2" />
+            <img src="<?= wp_get_attachment_image_url( $image_id, 'full' ) ?>" class="x-image md:w-1/2" />
         </section>
         <?
     }
@@ -225,7 +225,40 @@
     </div>
 
     <div class="parts flex flex-col gap-y-4 md:flex-row md:justify-evenly">
-        <div class="part flex flex-col">
+    <?php
+            $query_args = array(
+                'numberposts' => 3,
+                'category' => 'Parts',
+            );
+            $products = wc_get_products( $query_args );
+
+
+            foreach ($products as $product) {
+                $image_id  = $product->get_image_id();
+                $is_coming_soon = count($product->tag_ids) != 0;
+                ?>
+                <a class="part cursor-pointer flex flex-col" href="/shop/<?=$product->get_permalink()?>">
+                    <div class="part-image relative">
+                        <img src="<?= wp_get_attachment_image_url( $image_id, 'full' ) ?>" />
+                        <?
+                            if($is_coming_soon) {
+                                ?>
+                                <img class="absolute top-0" src="/wp-content/uploads/2024/09/Group-1171275041.svg" />
+                                <?
+                            }
+                        ?>
+                        <div class="part-like-button"></div>
+                    </div>
+                    <div class="part-details bg-black flex justify-center items-center">
+                        <div class="part-name">
+                            <?= $product->name; ?>
+                        </div>
+                    </div>
+                </a>
+                <?
+            }
+        ?>
+        <!-- <div class="part flex flex-col">
             <div class="part-image relative">
                 <img src="/wp-content/uploads/2024/09/Group-1171275045.svg" />
                 <div class="part-like-button"></div>
@@ -263,7 +296,7 @@
                     Part 3
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- /wp:html -->
@@ -280,7 +313,7 @@
 
         <div class="paragraph">{{ hero2.paragraph }}</div>
 
-        <button class="hollow-btn py-2 px-6 mt-6 w-fit">{{ hero2.btn }}</button>
+        <button class="hollow-btn py-2 px-6 mt-6 w-fit text-black">{{ hero2.btn }}</button>
     </div>
 </section>
 <!-- /wp:html -->
