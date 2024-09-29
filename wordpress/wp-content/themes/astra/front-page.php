@@ -258,45 +258,6 @@
                 <?
             }
         ?>
-        <!-- <div class="part flex flex-col">
-            <div class="part-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275045.svg" />
-                <div class="part-like-button"></div>
-            </div>
-
-            <div class="part-details bg-black flex justify-center items-center">
-                <div class="part-name">
-                    Part 1
-                </div>
-            </div>
-        </div>
-
-        <div class="part flex flex-col">
-            <div class="part-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275045.svg" />
-                <div class="part-like-button"></div>
-            </div>
-
-            <div class="part-details bg-black flex justify-center items-center">
-                <div class="part-name">
-                    Part 2
-                </div>
-            </div>
-        </div>
-
-        <div class="part flex flex-col">
-            <div class="part-image relative">
-                <img src="/wp-content/uploads/2024/09/Group-1171275045.svg" />
-                <img class="absolute top-0" src="/wp-content/uploads/2024/09/Group-1171275041.svg" />
-                <div class="part-like-button"></div>
-            </div>
-
-            <div class="part-details bg-black flex justify-center items-center">
-                <div class="part-name">
-                    Part 3
-                </div>
-            </div>
-        </div> -->
     </div>
 </section>
 <!-- /wp:html -->
