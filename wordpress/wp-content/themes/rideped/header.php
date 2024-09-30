@@ -469,7 +469,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 		}
 
 		nav.main-menu {
-			position: fixed;
+			/* position: fixed; */
 			top: 0;
 			width: 100%;
 			z-index: 999999;
