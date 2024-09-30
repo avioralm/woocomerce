@@ -75,7 +75,7 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 		}
 
 		html[dir="rtl"] .hero-section {
-			background-image: url('/wp-content/uploads/2024/09/Group-1171275058-1.svg');
+			background-image: url('/wp-content/uploads/2024/09/Group-1171275038-1.svg');
 			background-position-x: 0;
 		}
 		
@@ -327,6 +327,14 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 			#primary {
 				padding: 0 24px;
 			}
+
+			.menu-item {
+				list-style: none;
+			}
+
+			.menu-item a {
+				font-size: larger;
+			}
 		}
 		
 		@media only screen and (min-width: 576px) {
@@ -334,6 +342,11 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 				background-image: url('/wp-content/uploads/2024/09/Group-1171275062.svg');
 				background-position: right;
 			}
+            
+            html[dir="rtl"] .hero-section {
+                background-image: url('/wp-content/uploads/2024/09/Group-1171275094.svg');
+                background-position: left;
+            }
 			
 			.hero-section .hero {
 				max-width: 80%;
@@ -507,8 +520,8 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
     <nav class="main-menu flex flex-col px-4 md:px-8 py-4 gap-y-4">
         <div class="nav-top flex md:gap-0 justify-between items-center">
 			<div class="flex gap-4 items-center">
-				<img src="/wp-content/uploads/2024/09/Group-1171275085.svg" class="md:hidden">
-							<?php astra_logo(); ?>
+				<img onclick="document.querySelector('.mobile-menu').classList.toggle('hidden');document.querySelector('.mobile-menu').classList.toggle('flex');" src="/wp-content/uploads/2024/09/Group-1171275085.svg" class="md:hidden">
+				<?php astra_logo(); ?>
 			</div>
 			<a class="cart-customlocation md:hidden" href="<?php echo wc_get_cart_url(); ?>">
 				<div class="bg-primary flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
@@ -544,6 +557,27 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
                 ) );
             ?>
         </div>
+
+		<div class="mobile-menu w-full hidden md:hidden flex-col gap-y-2">
+			<?php
+				wp_nav_menu( array(
+					'theme_location' => 'primary',
+					'menu_id'        => 'primary-menu',
+					'menu_class' => 'flex list-none',
+					'items_wrap' => '%3$s',
+					'container' => false
+				) );
+			?>
+			<div class="flex gap-x-4">
+				<a class="account" href="/?page_id=9">
+					<div class="bg-dark flex items-center gap-1 font-bold text-sm px-4 py-2 rounded-xl">
+						<img src="/wp-content/uploads/2024/09/Frame-8-1.svg" />
+						<? echo is_user_logged_in() ? 'My Account' : 'Login'; ?>
+					</div>
+				</a>
+				<div class="flex items-center"><? wpml_floating_language_switcher(); ?></div>
+			</div>
+		</div>
     </nav>
 
 
