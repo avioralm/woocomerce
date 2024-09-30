@@ -1,12 +1,12 @@
 version: "3.9"
 services:
   db:
-    image: mysql:5.7
+    image: mysql:latest
     volumes:
-      - ./db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
@@ -16,7 +16,6 @@ services:
     image: wordpress:latest
     volumes:
       - ./wordpress:/var/www/html
-      - ./plugins:/var/www/html/wp-content/plugins
     ports:
       - "9000:80"
     restart: always
@@ -26,17 +25,5 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
 
-  wpcli:
-    container_name: wp-cli
-    depends_on:
-      - wordpress
-    image: wordpress:cli
-    user: 1000:1000
-    command: tail -f /dev/null
-    volumes:
-      - ./wordpress:/var/www/html
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+volumes:
+  db_data:
