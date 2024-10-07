@@ -299,6 +299,10 @@ class Swatches {
 		$common_style      .= 'min-height:' . $min_height . ';';
 		$common_style      .= 'border-radius:' . $border_radius . ';';
 
+	
+		$out_of_stock_class      = '';
+		$out_of_stock_attributes = $this->get_out_of_stock_attributes( $product );
+
 		switch ( $type ) {
 			case 'color':
 				$html = "<div class='cfvsw-swatches-container " . esc_attr( $container_class ) . "' swatches-attr='" . esc_attr( $get_attribute_name ) . "'>";
@@ -309,7 +313,12 @@ class Swatches {
 					$tooltip       = $settings['tooltip'] ? $term_name : '';
 					$style         = $common_style;
 					$inner_style   = 'background-color:' . $color . ';';
-					$html         .= "<div class='cfvsw-swatches-option' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $term_name ) . "' data-tooltip='" . esc_attr( $tooltip ) . "' style=" . esc_attr( $style ) . '><div class="cfvsw-swatch-inner" style="' . esc_attr( $inner_style ) . '"></div></div>';
+					
+					// Check if this attribute value is out of stock.
+					if ( ! empty( $out_of_stock_attributes ) ) {
+						$out_of_stock_class = $this->get_out_of_stock_class( $slug, $out_of_stock_attributes, $get_attribute_name );
+					}
+					$html .= "<div class='cfvsw-swatches-option {$out_of_stock_class}' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $term_name ) . "' data-tooltip='" . esc_attr( $tooltip ) . "' style=" . esc_attr( $style ) . '><div class="cfvsw-swatch-inner" style="' . esc_attr( $inner_style ) . '"></div></div>';
 				}
 				$html .= $more ? '<span class="cfvsw-more-link" style="line-height:' . esc_attr( $min_height ) . '">' . $more . '</span' : '';
 				$html .= '</div>';
@@ -323,8 +332,12 @@ class Swatches {
 					$tooltip       = $settings['tooltip'] ? $term_name : '';
 					$style         = $common_style;
 					$inner_style   = "background-image:url('" . esc_url( $image ) . "');background-size:cover;";
-					$html         .= "<div class='cfvsw-swatches-option cfvsw-image-option' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $term_name ) . "' data-tooltip='" . esc_attr( $tooltip ) . "' style=" . esc_attr( $style ) . '>';
-					$html         .= '<div class="cfvsw-swatch-inner" style="' . $inner_style . '"></div></div>';
+					
+					if ( ! empty( $out_of_stock_attributes ) ) {
+						$out_of_stock_class = $this->get_out_of_stock_class( $slug, $out_of_stock_attributes, $get_attribute_name );
+					}
+					$html .= "<div class='cfvsw-swatches-option cfvsw-image-option {$out_of_stock_class}' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $term_name ) . "' data-tooltip='" . esc_attr( $tooltip ) . "' style=" . esc_attr( $style ) . '>';
+					$html .= '<div class="cfvsw-swatch-inner" style="' . $inner_style . '"></div></div>';
 				}
 				$html .= $more ? '<span class="cfvsw-more-link" style="line-height:' . esc_attr( $min_height ) . '">' . $more . '</span' : '';
 				$html .= '</div>';
@@ -337,7 +350,11 @@ class Swatches {
 				foreach ( $attr_options as $slug ) {
 					$style = $common_style;
 					$name  = $this->get_attr_term_label( $attr_id, $slug, $args );
-					$html .= "<div class='cfvsw-swatches-option cfvsw-label-option' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $name ) . "' style=" . esc_attr( $style ) . '><div class="cfvsw-swatch-inner">' . esc_html( $name ) . '</div></div>';
+					// Check if this attribute value is out of stock.
+					if ( ! empty( $out_of_stock_attributes ) ) {
+						$out_of_stock_class = $this->get_out_of_stock_class( $slug, $out_of_stock_attributes, $get_attribute_name );
+					}
+					$html .= "<div class='cfvsw-swatches-option cfvsw-label-option {$out_of_stock_class}' data-slug='" . esc_attr( $slug ) . "' data-title='" . esc_attr( $name ) . "' style=" . esc_attr( $style ) . '><div class="cfvsw-swatch-inner">' . esc_html( $name ) . '</div></div>';
 				}
 				$html .= $more ? '<span class="cfvsw-more-link" style="line-height:' . esc_attr( $min_height ) . '">' . $more . '</span' : '';
 				$html .= '</div>';
@@ -347,6 +364,50 @@ class Swatches {
 			return '<div class="cfvsw-hidden-select">' . $select_html . '</div>' . $html;
 		}
 		return $select_html;
+	}
+
+	/**
+	 * Get out of stock class.
+	 *
+	 * @since 1.0.11
+	 * @param string $slug Attribute slug.
+	 * @param array  $out_of_stock_attributes Out of stock attributes.
+	 * @param string $get_attribute_name Attribute name.
+	 * @return string
+	 */
+	public function get_out_of_stock_class( $slug, $out_of_stock_attributes, $get_attribute_name ) {
+		$is_out_of_stock = isset( $out_of_stock_attributes[ 'attribute_' . $get_attribute_name ] ) && in_array( $slug, $out_of_stock_attributes[ 'attribute_' . $get_attribute_name ] );
+		return $is_out_of_stock ? ' cfvsw-swatches-blur-cross-disable cfvsw-swatches-disabled' : '';
+	}
+
+	/**
+	 * Get out of stock attributes.
+	 *
+	 * @since 1.0.11
+	 * @param WC_Product $product Product object.
+	 * @return array $out_of_stock_attributes Returns the out-of-stock product attributes
+	 */
+	public function get_out_of_stock_attributes( $product ) {
+		if ( empty( $product ) || ! is_a( $product, 'WC_Product' ) ) {
+			return [];
+		}
+		$available_variations = $product->get_available_variations();
+		if ( empty( $available_variations ) || ! is_array( $available_variations ) ) {
+			return [];
+		}
+		$out_of_stock_attributes = array();
+		foreach ( $available_variations as $variation ) {
+			if ( ! $variation['is_in_stock'] ) {
+				foreach ( $variation['attributes'] as $attr_name => $attr_value ) {
+					$attr_name = 'attribute_' . $attr_name;
+					if ( ! isset( $out_of_stock_attributes[ $attr_name ] ) ) {
+						$out_of_stock_attributes[ $attr_name ] = array();
+					}
+					$out_of_stock_attributes[ $attr_name ][] = $attr_value;
+				}
+			}
+		}
+		return $out_of_stock_attributes;
 	}
 
 	/**
@@ -616,6 +677,7 @@ class Swatches {
 
 		return $disable_class;
 	}
+
 
 	/**
 	 * Returns the position of swatches on shop page

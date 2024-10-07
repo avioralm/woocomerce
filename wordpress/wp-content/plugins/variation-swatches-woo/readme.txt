@@ -3,7 +3,7 @@ Contributors: brainstormforce
 Tags: woocommerce variation swatches, woocommerce attributes, woocommerce variation, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
 Requires at least: 5.4
 Tested up to: 6.6
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,9 @@ Yes, this plugin enables variation swatches on shop / archieve page. User can se
 2. Multiple options for swatches available
 
 == Changelog ==
+= 1.0.11 – MONDAY, 7th OCTOBER  2024 =
+- Fix: Resolved the issue where the variation swatch selection did not function properly when jQuery Migrate was disabled in Bricks Builder.
+- Fix: Resolved the issue where the "Out-of-Stock Disable" feature did not work correctly with pagination.
 
 = 1.0.10 – THURSDAY, 15th AUGUST 2024 =
 - Improvement: Updated the WooCommerce HPOS Compatibility.

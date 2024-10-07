@@ -2,7 +2,7 @@
 # This file is distributed under the GPL v2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Variation Swatches for WooCommerce 1.0.10\n"
+"Project-Id-Version: Variation Swatches for WooCommerce 1.0.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/variation-swatches-woo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
