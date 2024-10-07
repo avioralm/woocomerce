@@ -33,15 +33,19 @@
 <main>
 
 
-<section class="hero-section md:flex md:items-center">
+
+
+<section class="hero-section md:flex md:items-center relative w-full  bg-cover bg-no-repeat bg-left sm:bg-none bg-[url('/wp-content/themes/rideped/assets/scooters-bg-line-ltr.svg')]" >
     
      
-    <div class="flex mt-[40px] mx-[24px] gap-[40px]">
-         <h3 class="h3">Speed <br/> Quality <br/> Relaiabilty</h3>
+    <div class="flex mt-[40px] mx-[24px] gap-[40px] sm:flex-col">
+         <h3 class="h3 hidden sm:flex">Speed  Quality Relaiabilty</h3>
+         <h3 class="h3 sm:hidden">Speed <br/> Quality <br/> Relaiabilty</h3>
 
-        <div class="gap-[16px] flex flex-col">
+         <div>
+        <div class="gap-[16px] flex flex-col sm:grid grid-cols-3 ">
         <?php foreach ($features as $feature) : ?>
-        <div class="feature flex items-center gap-x-2">
+        <div class="feature flex items-center gap-2 sm:flex-col">
             <div class="feature-icon">
                 <img width="30px" height="30px" src="<?php echo esc_url($feature['icon']); ?>" alt="<?php echo esc_attr($feature['text']); ?>">
             </div>
@@ -49,17 +53,17 @@
         </div>
     <?php endforeach; ?>
 
-            
+        </div>
 
-             <!-- WooCommerce Button -->
-             <?php
+         <!-- WooCommerce Button -->
+       <?php
              $product_id = 14; // Replace with your actual product ID
              $product = wc_get_product($product_id);
             if ($product && $product->is_purchasable() && $product->is_in_stock()) {
                 echo apply_filters('woocommerce_loop_add_to_cart_link',
                     sprintf('<a href="%s" data-quantity="1" class="%s" %s>%s</a>',
                         esc_url($product->add_to_cart_url()),
-                        'bg-[#f28b30] text-white font-bold py-2 px-6 rounded-full text-center',
+                        'bg-[#f28b30] text-white flex mt-[24px] font-bold py-2 px-6 rounded-full text-center',
                         'data-product_id="' . $product->get_id() . '" data-product_sku="' . $product->get_sku() . '"',
                         "BUY"
                         // esc_html($product->add_to_cart_text())
@@ -67,13 +71,15 @@
                 $product);
             }
             ?>
-
-
-            <img src="/wp-content/themes/rideped/assets/scooter-bg.png" alt="">
         </div>
+      
 
 
     </div>
+
+      
+
+<img width="320" class="sm:hidden w-[320px]" src="/wp-content/themes/rideped/assets/scooters.svg" alt="">
 </section>
 <!-- /wp:html -->
 
@@ -138,7 +144,7 @@
         ?>
     </div>
 
-    <?php echo do_shortcode('[woo_buy_button product_id="14"]'); ?>
+
     <?php echo do_shortcode('[product_categories columns="3" number="3" hide_empty="0" parent="0"]') ?>
 </section>
 <!-- wp:html -->
@@ -224,12 +230,12 @@
 <!-- /wp:html -->
 
 <!-- wp:html -->
-<section class="mfit md:py-8">
+<section class="mfit md:py-8 px-[21px] mt-[24px] sm:px-none">
 
-    <div class="highlights flex flex-col gap-y-4 md:flex-row md:justify-evenly">
-        <div class="highlight flex flex-col">
+    <div class="highlights flex flex-col gap-y-4 md:flex-row md:justify-evenly ">
+        <div class="highlight flex flex-col rounded-[30px]">
             <div class="highlight-image relative">
-                <img src="/wp-content/uploads/2024/09/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.svg" />
+                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.svg" />
                 <div class="highlight-like-button"></div>
             </div>
 
@@ -240,9 +246,9 @@
             </div>
         </div>
 
-        <div class="highlight flex flex-col">
+        <div class="highlight flex flex-col rounded-[30px]">
             <div class="highlight-image relative">
-                <img src="/wp-content/uploads/2024/09/teenage-boy-lifestyle-concept-with-scooter.svg" />
+                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/teenage-boy-lifestyle-concept-with-scooter.svg" />
                 <div class="highlight-like-button"></div>
             </div>
 
@@ -253,9 +259,9 @@
             </div>
         </div>
 
-        <div class="highlight flex flex-col">
+        <div class="highlight flex flex-col rounded-[30px]">
             <div class="highlight-image relative">
-                <img src="/wp-content/uploads/2024/09/full-shot-young-man-sitting-scooter-1.svg" />
+                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/full-shot-young-man-sitting-scooter-1.svg" />
                 <div class="highlight-like-button"></div>
             </div>
 
@@ -269,7 +275,7 @@
 </section>
 
 <!-- wp:html -->
-<section class="fit bg-white">
+<section class="fit bg-white px-[21px] mt-[24px] sm:px-none">
     <div class="title lg md:mb-0 nomb-md md:pt-8">Frequently asked questions</div>
     <div class="paragraph text-center mb-4">Everything you need to know about the product and billing.</div>
 
