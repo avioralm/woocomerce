@@ -27,6 +27,53 @@
             'text' => '40 km'
         )
     );
+
+    $highlights = array(
+        array(
+            'image' => '/wp-content/uploads/2024/09/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.svg',
+            'title' => 'Performance',
+            'stat' => 'x500',
+            'description' => 'More Efficient'
+        ),
+        array(
+            'image' => '/wp-content/uploads/2024/09/teenage-boy-lifestyle-concept-with-scooter.svg',
+            'title' => 'Infinite combinations',
+            'stat' => '2k+',
+            'description' => 'components'
+        ),
+        array(
+            'image' => '/wp-content/uploads/2024/09/full-shot-young-man-sitting-scooter-1.svg',
+            'title' => 'Guarantee',
+            'stat' => '98%',
+            'description' => 'positive reviews'
+        )
+    );
+
+
+    $faqs = array(
+        array(
+            'question' => 'Details element with custom arrow!',
+            'answer' => 'Give me attention or face the wrath of my claws give me attention or face the wrath of my claws and pretend not to be evil cats go for world domination allways wanting food. Eat owner\'s food playing with balls of wool and meow and walk away, and bleghbleghvomit my furball really tie the room together. Cuddle no cuddle cuddle love scratch scratch cat'
+        ),
+        array(
+            'question' => 'Another frequently asked question?',
+            'answer' => 'Here\'s another example answer. You can add as many questions and answers as you need.'
+        ),
+        array(
+            'question' => 'What if I have a third question?',
+            'answer' => 'No problem! Just add another item to the $faqs array with the question and answer.'
+        )
+    );
+    
+    // Function to generate SVG icons
+    function get_svg_icon($icon_name) {
+        if ($icon_name === 'chevron-down') {
+            return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+        } elseif ($icon_name === 'chevron-up') {
+            return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+        }
+        return '';
+    }
 ?>
 
 
@@ -80,16 +127,17 @@
       
 
 <img width="320" class="sm:hidden w-[320px]" src="/wp-content/themes/rideped/assets/scooters.svg" alt="">
+<img width="320" class="sm:hidden w-[320px]" src="/wp-content/themes/rideped/assets/scooters.svg" alt="">
 </section>
-<!-- /wp:html -->
 
-<!-- wp:html -->
+
+
 <section class="px-[21px]">
     <div class="title md:mt-6">
         Our Scooters
     </div>
 
-    <div class="products flex flex-col gap-y-4 md:flex-row md:justify-evenly">
+    <div class="products grid sm:grid-cols-3 gap-[24px] sm:gap-[80px]">
         <?php
             $query_args = array(
                 'numberposts' => 3,
@@ -130,7 +178,7 @@
     <div class="h-20 md:hidden"></div>
     <img class="absolute bottom-0 right-0 rotate-270 md:hidden" src="/wp-content/uploads/2024/09/Group-1171275044.svg" />
 </section>
-<!-- /wp:html -->
+
 
 
 <section>
@@ -147,10 +195,7 @@
 
     <?php echo do_shortcode('[product_categories columns="3" number="3" hide_empty="0" parent="0"]') ?>
 </section>
-<!-- wp:html -->
 
-
-<!-- wp:html -->
 
 <?php
     $query_args = array(
@@ -208,11 +253,7 @@
         <?
     }
 ?>
-<!-- /wp:html -->
 
-
-
-<!-- wp:html -->
 <section class="hero2 fit mdhscreen md:flex md:items-center">
     <img class="hero-img w-full md:hidden" src="/wp-content/uploads/2024/09/Group-1171275049.svg" />
 
@@ -227,141 +268,50 @@
         <button class="hollow-btn py-2 px-6 mt-6 w-fit text-black">{{ hero2.btn }}</button>
     </div>
 </section>
-<!-- /wp:html -->
 
-<!-- wp:html -->
 <section class="mfit md:py-8 px-[21px] mt-[24px] sm:px-none">
+    <div class="highlights flex flex-col gap-y-4 md:flex-row md:justify-evenly">
+        <?php foreach ($highlights as $highlight) : ?>
+            <div class="highlight flex flex-col rounded-[30px]">
+                <div class="highlight-image relative">
+                    <img class="w-full rounded-t-[30px]" src="<?php echo esc_url($highlight['image']); ?>" alt="<?php echo esc_attr($highlight['title']); ?>" />
+                    <div class="highlight-like-button"></div>
+                </div>
 
-    <div class="highlights flex flex-col gap-y-4 md:flex-row md:justify-evenly ">
-        <div class="highlight flex flex-col rounded-[30px]">
-            <div class="highlight-image relative">
-                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.svg" />
-                <div class="highlight-like-button"></div>
+                <div class="highlight-details flex flex-col justify-center items-center">
+                    <div class="highlight-bottom-head"><?php echo esc_html($highlight['title']); ?></div>
+                    <div class="highlight-bottom-stat text-2xl font-medium"><?php echo esc_html($highlight['stat']); ?></div>
+                    <div class="highlight-bottom-bottom text-lg"><?php echo esc_html($highlight['description']); ?></div>
+                </div>
             </div>
-
-            <div class="highlight-details flex flex-col justify-center items-center">
-                <div class="highlight-bottom-head">Performance</div>
-                <div class="highlight-bottom-stat text-2xl font-medium">x500</div>
-                <div class="highlight-bottom-bottom text-lg">More Efficient</div>
-            </div>
-        </div>
-
-        <div class="highlight flex flex-col rounded-[30px]">
-            <div class="highlight-image relative">
-                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/teenage-boy-lifestyle-concept-with-scooter.svg" />
-                <div class="highlight-like-button"></div>
-            </div>
-
-            <div class="highlight-details flex flex-col justify-center items-center">
-                <div class="highlight-bottom-head">Performance</div>
-                <div class="highlight-bottom-stat text-2xl font-medium">x500 times</div>
-                <div class="highlight-bottom-bottom text-lg">More Efficient</div>
-            </div>
-        </div>
-
-        <div class="highlight flex flex-col rounded-[30px]">
-            <div class="highlight-image relative">
-                <img class="w-full rounded-t-[30px]" src="/wp-content/uploads/2024/09/full-shot-young-man-sitting-scooter-1.svg" />
-                <div class="highlight-like-button"></div>
-            </div>
-
-            <div class="highlight-details flex flex-col justify-center items-center">
-                <div class="highlight-bottom-head">Performance</div>
-                <div class="highlight-bottom-stat text-2xl font-medium">x500 times</div>
-                <div class="highlight-bottom-bottom text-lg">More Efficient</div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
 
-<!-- wp:html -->
+
 <section class="fit bg-white px-[21px] mt-[24px] sm:px-none">
     <div class="title lg md:mb-0 nomb-md md:pt-8">Frequently asked questions</div>
     <div class="paragraph text-center mb-4">Everything you need to know about the product and billing.</div>
 
-    <details>
-        <summary>
-            <span class="summary-title">Details element with custom arrow!</span>
-            <div class="summary-chevron-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    <?php foreach ($faqs as $faq) : ?>
+        <details>
+            <summary>
+                <span class="summary-title"><?php echo esc_html($faq['question']); ?></span>
+                <div class="summary-chevron-up">
+                    <?php echo get_svg_icon('chevron-down'); ?>
+                </div>
+            </summary>
+
+            <div class="summary-content"><?php echo esc_html($faq['answer']); ?></div>
+            <div class="summary-chevron-down">
+                <?php echo get_svg_icon('chevron-up'); ?>
             </div>
-        </summary>
+        </details>
+    <?php endforeach; ?>
 
-        <div class="summary-content">Give me attention or face the wrath of my claws give me attention or face the wrath of my claws and pretend not to be evil cats go for world domination allways wanting food. Eat owner's food playing with balls of wool and meow and walk away, and bleghbleghvomit
-            my furball really tie the room together. Cuddle no cuddle cuddle love scratch scratch cat</div>
-        <div class="summary-chevron-down">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        
-    </details>
-
-    <details>
-        <summary>
-            <span class="summary-title">Details element with custom arrow!</span>
-            <div class="summary-chevron-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-        </summary>
-
-        <div class="summary-content">Give me attention or face the wrath of my claws give me attention or face the wrath of my claws and pretend not to be evil cats go for world domination allways wanting food. Eat owner's food playing with balls of wool and meow and walk away, and bleghbleghvomit
-            my furball really tie the room together. Cuddle no cuddle cuddle love scratch scratch cat</div>
-        <div class="summary-chevron-down">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        
-    </details>
-
-    <details>
-        <summary>
-            <span class="summary-title">Details element with custom arrow!</span>
-            <div class="summary-chevron-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-        </summary>
-
-        <div class="summary-content">Give me attention or face the wrath of my claws give me attention or face the wrath of my claws and pretend not to be evil cats go for world domination allways wanting food. Eat owner's food playing with balls of wool and meow and walk away, and bleghbleghvomit
-            my furball really tie the room together. Cuddle no cuddle cuddle love scratch scratch cat</div>
-        <div class="summary-chevron-down">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
-        
-    </details>
-
-
-    <!-- <div class="collapsibles flex flex-col gap-y-2">
-        <div class="collapsible active">
-            <div class="collapsible-top flex justify-between">
-                <div class="collapsible-title">Lorem Ipsum</div>
-                <img src="/wp-content/uploads/2024/09/Icon.svg" class="collapser active">
-            </div>
-            <div class="collapsible-paragraph">Dolor Sit Amet</div>
-        </div>
-
-        <div class="collapsible">
-            <div class="collapsible-top flex justify-between">
-                <div class="collapsible-title">Lorem Ipsum</div>
-                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
-            </div>
-            <div class="collapsible-paragraph">Dolor Sit Amet</div>
-        </div>
-
-        <div class="collapsible">
-            <div class="collapsible-top flex justify-between">
-                <div class="collapsible-title">Lorem Ipsum</div>
-                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
-            </div>
-            <div class="collapsible-paragraph">Dolor Sit Amet</div>
-        </div>
-        
-        <div class="collapsible">
-            <div class="collapsible-top flex justify-between">
-                <div class="collapsible-title">Lorem Ipsum</div>
-                <img src="/wp-content/uploads/2024/09/Icon-1.svg" class="collapser">
-            </div>
-            <div class="collapsible-paragraph">Dolor Sit Amet</div>
-        </div>
-    </div> -->
 </section>
-<!-- /wp:html -->
 
-<!-- wp:html -->
+
 <section class="clear hidden">
     <div class="title">{{ blog.title }}</div>
 

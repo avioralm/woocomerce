@@ -644,6 +644,10 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -731,6 +735,10 @@ video {
 
 .gap-\[16px\] {
   gap: 16px;
+}
+
+.gap-\[24px\] {
+  gap: 24px;
 }
 
 .gap-\[40px\] {
@@ -1437,7 +1445,7 @@ nav.main-menu {
   padding-top: auto;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .sm\:flex {
     display: flex;
   }
@@ -1450,8 +1458,16 @@ nav.main-menu {
     display: none;
   }
 
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .sm\:flex-col {
     flex-direction: column;
+  }
+
+  .sm\:gap-\[80px\] {
+    gap: 80px;
   }
 
   .sm\:bg-none {
@@ -1459,7 +1475,7 @@ nav.main-menu {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .md\:relative {
     position: relative;
   }
