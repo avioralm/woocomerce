@@ -131,12 +131,18 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 	);
 	?>
 >
+
+
+
 	<?php
-	astra_header_before();
+	// astra_header_before();
 
-	astra_header();
+	// astra_header();
 
-	astra_header_after();
+	// astra_header_after();
+
+    get_header('shop');
+    
 
 	astra_content_before();
 	?>
