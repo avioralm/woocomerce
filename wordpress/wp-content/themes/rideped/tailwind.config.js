@@ -3,14 +3,16 @@ module.exports = {
   content: ["./template-parts/*.{php,html,js}", "./*.{php,html,js}"],
   theme: {
     screens: {
-      'sm': '768px',
-      // Keep other breakpoints as they are
-      'md': '991px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
+      'md': '768px',    // Medium: ≥768px
+      'lg': '992px',    // Large: ≥992px
+      'xl': '1200px',   // X-Large: ≥1200px
+      '2xl': '1400px',  // XX-Large: ≥1400px
     },
-    extend: {},
+    extend: {
+      container: {
+        center: true,
+      },
+    },
   },
   plugins: [],
 }
