@@ -1,5 +1,5 @@
 <div id="offCanvasMenu" class="fixed top-0 left-0 w-64 h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
-  <nav class="pt-16">
+  
     <?php
     wp_nav_menu(array(
       'theme_location' => 'primary-menu',
@@ -8,10 +8,10 @@
       'item_class' => 'block px-6 py-2 text-white hover:bg-gray-800',
     ));
     ?>
-  </nav>
+  
 </div>
 
-<header class="flex items-center justify-between  text-white p-4 max-w-[1400px] mx-auto w-full">
+<header class="flex items-center justify-between  text-white p-4 max-w-[1240px] mx-auto w-full">
 
     <div class="flex items-center gap-[8px]">
  
@@ -24,15 +24,15 @@
      <img url="<?php echo astra_logo() ?>" />
     </div>
     <div class="flex items-center gap-[12px]">
-        <!-- <?php get_product_search_form(); ?> -->
-
-        <?php display_login_account_link(); ?>
-
-
+        
         <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="flex items-center  bg-orange-400 text-white p-[12px] shrink-0 gap-[12px] rounded-[14px]">
            <img src="/wp-content/themes/rideped/assets/shopping--cart.svg" />
             <span>Cart</span>
         </a>
+
+        <?php display_login_account_link(); ?>
+
+        <?php do_action('wpml_add_language_selector'); ?>
     </div>
 </header>
 

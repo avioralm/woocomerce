@@ -18,7 +18,7 @@ define( 'CHILD_THEME_RIDEPED_VERSION', '1.0.0' );
  */
 function child_enqueue_styles() {
 
-	wp_enqueue_style( 'rideped-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_RIDEPED_VERSION, 'all' );
+	wp_enqueue_style( 'rideped-theme-css', get_stylesheet_directory_uri() . '/style.css', ['astra-theme-css'], CHILD_THEME_RIDEPED_VERSION, 'all' );
 	wp_enqueue_style('rideped-main-css' , get_stylesheet_directory_uri() . '/output.css' ,[], CHILD_THEME_RIDEPED_VERSION, 'all' );
 
 }
@@ -37,14 +37,14 @@ add_action('wp_head', 'add_noindex_nofollow');
 
 
 
-function custom_woo_buy_button($atts = array(), $content = null) {
+function custom_woo_buy_button($atts = [], $content = null) {
     // Extract shortcode attributes
-    $a = shortcode_atts(array(
+    $a = shortcode_atts([
         'product_id' => '',
         'text' => 'BUY',
         'class' => '',
         'out_of_stock_text' => 'Out of Stock',
-    ), $atts);
+	], $atts);
 
     // If no product ID is provided, try to get the current product ID
     if (empty($a['product_id'])) {
@@ -119,3 +119,5 @@ function display_login_account_link() {
     </a>
     <?php
 }
+
+

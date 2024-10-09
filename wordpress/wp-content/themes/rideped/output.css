@@ -792,6 +792,10 @@ video {
   width: 40px;
 }
 
+.w-\[642px\] {
+  width: 642px;
+}
+
 .min-w-8 {
   min-width: 2rem;
 }
@@ -1746,6 +1750,10 @@ nav.main-menu {
 
   .sm\:ml-\[64px\] {
     margin-left: 64px;
+  }
+
+  .sm\:ml-\[130px\] {
+    margin-left: 130px;
   }
 
   .sm\:block {
