@@ -17,36 +17,30 @@ define( 'CHILD_THEME_RIDEPED_VERSION', '1.0.0' );
  * Enqueue styles
  */
 function child_enqueue_styles() {
-
-	wp_enqueue_style( 'rideped-theme-css', get_stylesheet_directory_uri() . '/style.css', ['astra-theme-css'], CHILD_THEME_RIDEPED_VERSION, 'all' );
-	wp_enqueue_style('rideped-main-css' , get_stylesheet_directory_uri() . '/output.css' ,[], CHILD_THEME_RIDEPED_VERSION, 'all' );
-
+    wp_enqueue_style( 'rideped-theme-css', get_stylesheet_directory_uri() . '/style.css', ['astra-theme-css'], CHILD_THEME_RIDEPED_VERSION, 'all' );
+    wp_enqueue_style('rideped-main-css' , get_stylesheet_directory_uri() . '/output.css' ,[], CHILD_THEME_RIDEPED_VERSION, 'all' );
 }
-
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
-// add_action('wp_enqueue_scripts', 'main_styles', 20);
-
-
-function add_noindex_nofollow() {    
-        echo '<meta name="robots" content="noindex,nofollow">' . "\n";
+/**
+ * Add noindex, nofollow meta tag
+ */
+function add_noindex_nofollow() {
+    echo '<meta name="robots" content="noindex,nofollow">' . "\n";
 }
-
 add_action('wp_head', 'add_noindex_nofollow');
 
-
-
-
+/**
+ * Custom WooCommerce buy button shortcode
+ */
 function custom_woo_buy_button($atts = [], $content = null) {
-    // Extract shortcode attributes
     $a = shortcode_atts([
         'product_id' => '',
-        'text' => 'BUY',
+        'text' => __('BUY', 'rideped'),
         'class' => '',
-        'out_of_stock_text' => 'Out of Stock',
-	], $atts);
+        'out_of_stock_text' => __('Out of Stock', 'rideped'),
+    ], $atts);
 
-    // If no product ID is provided, try to get the current product ID
     if (empty($a['product_id'])) {
         global $product;
         if (is_a($product, 'WC_Product')) {
@@ -54,31 +48,29 @@ function custom_woo_buy_button($atts = [], $content = null) {
         }
     }
 
-    // If we still don't have a product ID, return empty
     if (empty($a['product_id'])) {
         return '';
     }
 
-    // Get the product
     $product = wc_get_product($a['product_id']);
 
     if (!$product) {
         return '';
     }
 
-    // Check if the product is in stock
     $is_in_stock = $product->is_in_stock();
 
-    // Generate the button HTML
     if ($is_in_stock) {
         $button_html = sprintf(
             '<a href="%s" data-quantity="1" class="w-[140px] button %s add_to_cart_button" data-product_id="%d" rel="nofollow" style="display:flex; gap:8px; background-color: #E7843A; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">
-                <img src="/wp-content/themes/rideped/assets/shopping--cart.svg" alt="Cart" />
+                <img src="%s" alt="%s" />
                 %s
             </a>',
             esc_url($product->add_to_cart_url()),
             esc_attr($a['class']),
             esc_attr($a['product_id']),
+            esc_url(get_stylesheet_directory_uri() . '/assets/shopping--cart.svg'),
+            esc_attr__('Cart', 'rideped'),
             esc_html($a['text'])
         );
     } else {
@@ -94,19 +86,24 @@ function custom_woo_buy_button($atts = [], $content = null) {
 }
 add_shortcode('woo_buy_button', 'custom_woo_buy_button');
 
-// Optional: Add a function to easily use in PHP files
-function woo_buy_button($product_id = '', $text = 'BUY', $class = '') {
+/**
+ * Helper function for woo buy button
+ */
+function woo_buy_button($product_id = '', $text = '', $class = '') {
+    $text = $text ?: __('BUY', 'rideped');
     return do_shortcode(sprintf('[woo_buy_button product_id="%s" text="%s" class="%s"]', $product_id, $text, $class));
 }
 
-
+/**
+ * Display login/account link
+ */
 function display_login_account_link() {
     if (is_user_logged_in()) {
         $url = get_permalink(get_option('woocommerce_myaccount_page_id'));
-        $text = 'Account';
+        $text = __('Account', 'rideped');
     } else {
         $url = wp_login_url(get_permalink());
-        $text = 'Login';
+        $text = __('Login', 'rideped');
     }
     ?>
     <a href="<?php echo esc_url($url); ?>" class="flex items-center justify-center bg-gray-800 text-white p-[12px] gap-[12px] rounded-[12px] hover:bg-gray-700 transition-colors duration-300">
@@ -119,5 +116,4 @@ function display_login_account_link() {
     </a>
     <?php
 }
-
 

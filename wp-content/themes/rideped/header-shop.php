@@ -1,5 +1,5 @@
 <div id="offCanvasMenu"
-    class="fixed top-0 left-0 w-64 h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+     class="fixed top-0 left-0 w-64 h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
 
     <?php
     wp_nav_menu(array(
@@ -18,27 +18,32 @@
         <div class="flex items-center gap-[12px]">
 
             <div id="menuButton"
-                class="md:hidden w-[40px] h-[40px] shrink-0	 border-black border rounded-[14px] flex items-center justify-center cursor-pointer"
-                aria-label="Toggle menu">
+                 class="md:hidden w-[40px] h-[40px] shrink-0     border-black border rounded-[14px] flex items-center justify-center cursor-pointer"
+                 aria-label="<?php esc_attr_e('Toggle menu', 'rideped'); ?>">
                 <span class="menu-icon"></span>
             </div>
-            <img src="/wp-content/themes/rideped/assets/logo.svg" />
+
+            <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/logo.svg'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>"/>
+            </a>
         </div>
 
 
-        <div class="flex items-center gap-[12px] flex-row-reverse">
+        <div class="flex items-center gap-[12px] ">
+
+
+
+            <div class="hidden md:flex gap-[12px]">
+                <?php do_action('wpml_add_language_selector'); ?>
+                <?php display_login_account_link(); ?>
+            </div>
 
             <a href="<?php echo esc_url(wc_get_cart_url()); ?>"
-                class="flex items-center  bg-orange-400 text-white p-[12px] shrink-0 gap-[12px] rounded-[14px]">
-                <img src="/wp-content/themes/rideped/assets/shopping--cart.svg" />
-                <span>Cart</span>
+               class="flex items-center  bg-orange-400 text-white p-[12px] shrink-0 gap-[12px] rounded-[14px]">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/shopping--cart.svg'); ?>" alt=""/>
+                <span><?php esc_html_e('Cart', 'rideped'); ?></span>
             </a>
 
-            <?php display_login_account_link(); ?>
-
-            <div class="hidden md:flex">
-                <?php do_action('wpml_add_language_selector'); ?>
-            </div>
 
         </div>
 
@@ -53,10 +58,6 @@
     ?>
 
 </header>
-
-
-
-
 
 
 <script>
