@@ -289,10 +289,15 @@ details summary::-webkit-details-marker {
 
     .menu-item {
         list-style: none;
+        border-bottom-width: 1px;
+        border-color: #eaeaea;
+        padding: 10px 20px;
+        border-style: solid;
     }
 
     .menu-item a {
         font-size: larger;
+
     }
 }
 
