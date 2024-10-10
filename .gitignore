@@ -1,36 +1,52 @@
-/db_data
-/wp-admin/
-/wp-content/index.php
-/wp-content/languages
-/wp-content/plugins/index.php
-/wp-content/themes/index.php
-/wp-includes/
-/index.php
-/license.txt
-/readme.html
-/wp-*.php
-/xmlrpc.php
+# WordPress core files
+wordpress/wp-config.php
+wordpress/wp-content/advanced-cache.php
+wordpress/wp-content/backup-db/
+wordpress/wp-content/backups/
+wordpress/wp-content/blogs.dir/
+wordpress/wp-content/cache/
+wordpress/wp-content/upgrade/
+wordpress/wp-content/uploads/*
+wordpress/wp-content/mu-plugins/
+wordpress/wp-content/wp-cache-config.php
+wordpress/wp-content/plugins/hello.php
 
-# Configuration
-wp-config.php
+# WordPress themes
+wordpress/wp-content/themes/twenty*/
 
-# Example themes
-/wp-content/themes/twenty*/
+# Node modules
+node_modules/
 
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
-
-# Log files
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# htaccess
-/.htaccess
-
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-/wp-content/cache/*
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+*.sublime-workspace
 
+# PHP Composer
+vendor/
+composer.phar
+
+# Environment files
 .env
+.env.*
+!.env.example
+
+# WordPress specific files
+wordpress/wp-content/debug.log

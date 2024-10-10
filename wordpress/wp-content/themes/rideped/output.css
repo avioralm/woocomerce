@@ -1725,6 +1725,14 @@ nav.main-menu {
     background-image: url('/wp-content/themes/rideped/assets/scooters-bg-rtl.svg');
   }
 
+  .md\:bg-\[url\(\'\/wp-content\/themes\/rideped\/assets\/scooters-bg-ltr\.svg\'\)\] {
+    background-image: url('/wp-content/themes/rideped/assets/scooters-bg-ltr.svg');
+  }
+
+  .md\:bg-\[url\(\'\/wp-content\/themes\/rideped\/assets\/scooters-bg-ltl\.svg\'\)\] {
+    background-image: url('/wp-content/themes/rideped/assets/scooters-bg-ltl.svg');
+  }
+
   .md\:bg-right {
     background-position: right;
   }
