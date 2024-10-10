@@ -1,18 +1,18 @@
 # WordPress core files
-wordpress/wp-config.php
-wordpress/wp-content/advanced-cache.php
-wordpress/wp-content/backup-db/
-wordpress/wp-content/backups/
-wordpress/wp-content/blogs.dir/
-wordpress/wp-content/cache/
-wordpress/wp-content/upgrade/
-wordpress/wp-content/uploads/*
-wordpress/wp-content/mu-plugins/
-wordpress/wp-content/wp-cache-config.php
-wordpress/wp-content/plugins/hello.php
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/*
+wp-content/mu-plugins/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
 
 # WordPress themes
-wordpress/wp-content/themes/twenty*/
+wp-content/themes/twenty*/
 
 # Node modules
 node_modules/
@@ -49,4 +49,4 @@ composer.phar
 !.env.example
 
 # WordPress specific files
-wordpress/wp-content/debug.log
+wp-content/debug.log
