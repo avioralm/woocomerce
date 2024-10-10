@@ -6,29 +6,29 @@
 get_header();
 
 $features = [
-    ['icon' => '/wp-content/uploads/2024/09/kilogram_5009306.svg', 'text' => __('29.9 kg', 'rideped')],
-    ['icon' => '/wp-content/uploads/2024/09/charging_5945741.svg', 'text' => __('48V15AH', 'rideped')],
-    ['icon' => '/wp-content/uploads/2024/09/dashboard_8078295.svg', 'text' => __('25 km/h', 'rideped')],
-    ['icon' => '/wp-content/uploads/2024/09/tire_6955616.svg', 'text' => __('2x750KW', 'rideped')],
-    ['icon' => '/wp-content/uploads/2024/09/tire_950472.svg', 'text' => __('pMT 11"', 'rideped')],
-    ['icon' => '/wp-content/uploads/2024/09/road_6088994.svg', 'text' => __('40 km', 'rideped')]
+    ['icon' =>  esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/kilogram_5009306.svg'), 'text' => __('29.9 kg', 'rideped')],
+    ['icon' =>  esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/charging_5945741.svg'), 'text' => __('48V15AH', 'rideped')],
+    ['icon' =>   esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/dashboard_8078295.svg'), 'text' => __('25 km/h', 'rideped')],
+    ['icon' =>   esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/tire_6955616.svg'), 'text' => __('2x750KW', 'rideped')],
+    ['icon' =>  esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/tire_950472.svg'), 'text' => __('pMT 11"', 'rideped')],
+    ['icon' =>  esc_url(get_stylesheet_directory_uri() . '/assets/front-page/icons/road_6088994.svg'), 'text' => __('40 km', 'rideped')]
 ];
 
 $highlights = [
     [
-        'image' => '/wp-content/uploads/2024/09/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.svg',
+        'image' => esc_url(get_stylesheet_directory_uri() . '/assets/front-page/man-riding-electric-scooter-busy-cityscape-ecofriendly-commuting-concept-healthy.png'),
         'title' => __('Performance', 'rideped'),
         'stat' => __('x500', 'rideped'),
         'description' => __('More Efficient', 'rideped')
     ],
     [
-        'image' => '/wp-content/uploads/2024/09/teenage-boy-lifestyle-concept-with-scooter.svg',
+        'image' => esc_url(get_stylesheet_directory_uri() . '/assets/front-page/teenage-boy-lifestyle-concept-with-scooter.png'),
         'title' => __('Infinite combinations', 'rideped'),
         'stat' => __('2k+', 'rideped'),
         'description' => __('components', 'rideped')
     ],
     [
-        'image' => '/wp-content/uploads/2024/09/full-shot-young-man-sitting-scooter-1.svg',
+        'image' => esc_url(get_stylesheet_directory_uri() . '/assets/front-page/full-shot-young-man-sitting-scooter.png'),
         'title' => __('Guarantee', 'rideped'),
         'stat' => __('98%', 'rideped'),
         'description' => __('positive reviews', 'rideped')
@@ -70,7 +70,7 @@ function get_svg_icon($icon_name)
                     <?php esc_html_e('Speed Quality Reliability', 'rideped'); ?>
                 </h3>
                 <h3 class="w-[216px] text-black text-4xl font-semibold  capitalize leading-[55.12px] md:hidden">
-                    <?php esc_html_e('Speed <br /> Quality <br /> Reliability', 'rideped'); ?>
+                    <?php esc_html_e('Speed Quality Reliability', 'rideped'); ?>
                 </h3>
 
                 <div class="flex flex-col items-center gap-[24px] md:items-start">
@@ -250,7 +250,7 @@ function get_svg_icon($icon_name)
                 $category_link = get_term_link($category);
                 $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
                 $image = wp_get_attachment_image_src($thumbnail_id, 'full');
-                $default_image = '/wp-content/uploads/woocommerce-placeholder.png';
+                $default_image =  esc_url(get_stylesheet_directory_uri() . '/assets/woocommerce-placeholder.png');
                 ?>
 
                 <div class="product flex flex-col rounded-md">
