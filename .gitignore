@@ -40,7 +40,7 @@ Thumbs.db
 *.sublime-workspace
 
 # PHP Composer
-vendor/
+#vendor/
 composer.phar
 
 # Environment files
@@ -50,3 +50,5 @@ composer.phar
 
 # WordPress specific files
 wp-content/debug.log
+
+init.sh
