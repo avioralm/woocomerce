@@ -109,7 +109,7 @@ function get_svg_icon($icon_name)
                     [
                         'taxonomy' => 'product_cat',
                         'field' => 'slug',
-                        'terms' => 'scooters',
+                        'terms' => ['scooters', 'scooters-he'],
                     ],
                 ],
             ];
@@ -157,7 +157,7 @@ function get_svg_icon($icon_name)
             [
                 'taxonomy' => 'product_cat',
                 'field' => 'slug',
-                'terms' => 'scooters',
+                'terms' => ['scooters', 'scooters-he'],
             ],
         ],
     ]);
