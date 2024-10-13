@@ -8,6 +8,13 @@
 @tailwind utilities;
 
 
+.hero-section {
+    background: url('/wp-content/themes/rideped/assets/scooters-bg-line-ltr.svg') no-repeat right;
+    background-size: cover;
+}
+
+
+
 
 .main-area {
     padding: 0;
@@ -301,15 +308,18 @@ details summary::-webkit-details-marker {
     }
 }
 
+
+
+
 @media only screen and (min-width: 768px) {
 
-
-    .hero-section .hero {
-        max-width: 80%;
-        margin: 0 auto;
+    .hero-section {
+        background: url('/wp-content/themes/rideped/assets/scooters-bg-rtl.svg') no-repeat left;
     }
 
-
+    html[dir="rtl"] .hero-section {
+        background: url('/wp-content/themes/rideped/assets/scooters-bg-ltr.svg') no-repeat left;
+    }
 
     .parts .part,
     .highlights .highlight {
@@ -328,17 +338,6 @@ details summary::-webkit-details-marker {
     .title {
         margin-bottom: 2rem;
     }
-
-    /* .hero2 {
-        background-image: url('/wp-content/uploads/2024/09/Group-1171275063.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    } */
-    /* 
-    html[dir="rtl"] .hero2 {
-        background-image: url('/wp-content/uploads/2024/09/Group-1171275084.svg');
-        background-position-x: 0;
-    } */
 
 
 

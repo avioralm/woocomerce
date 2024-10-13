@@ -1,11 +1,6 @@
 <div id="offCanvasMenu"
      class="fixed top-0 left-0 w-2/3 h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
 
-    <!-- User icon -->
-<!--    <div class="p-4 border-b border-gray-200">-->
-<!--        <div class="w-8 h-8 bg-gray-300 rounded-full"></div>-->
-<!--    </div>-->
-
     <!-- Product Search -->
     <div class="p-4 border-b border-gray-200">
         <form role="search" method="get" class="woocommerce-product-search flex" action="<?php echo esc_url(home_url('/')); ?>">
@@ -32,17 +27,7 @@
     </nav>
 </div>
 
-<?php
-// Custom walker class to style menu items
-class Rideped_Off_Canvas_Walker extends Walker_Nav_Menu {
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-        $output .= '<li class="border-b border-gray-200">';
-        $output .= '<a href="' . esc_url($item->url) . '" class="block px-4 py-3 text-gray-700 hover:bg-gray-100">';
-        $output .= esc_html($item->title);
-        $output .= '</a>';
-    }
-}
-?>
+
 
 <header class="text-white p-4 container w-full">
 

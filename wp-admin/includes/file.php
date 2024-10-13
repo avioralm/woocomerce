@@ -522,7 +522,7 @@ function wp_edit_theme_plugin_file( $args ) {
 
 	wp_opcache_invalidate( $real_file, true );
 
-	if ( $is_active && 'php' === $extension && false) {
+	if ( $is_active && 'php' === $extension ) {
 
 		$scrape_key   = md5( rand() );
 		$transient    = 'scrape_key_' . $scrape_key;

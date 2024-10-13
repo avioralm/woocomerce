@@ -58,12 +58,7 @@ function get_svg_icon($icon_name)
 
 <main>
     <section
-        class="relative hero-section md:flex md:items-center relative w-full bg-cover md:h-[964px] bg-no-repeat bg-left md:bg-right md:bg-[url('/wp-content/themes/rideped/assets/scooters-bg-rtl.svg')] bg-[url('/wp-content/themes/rideped/assets/scooters-bg-line-ltr.svg')] <?php if (is_rtl()): ?>
-        md:bg-[url('/wp-content/themes/rideped/assets/scooters-bg-ltr.svg')]
-    <?php else: ?>
-        md:bg-[url('/wp-content/themes/rideped/assets/scooters-bg-rtl.svg')]
-    <?php endif; ?>
-    bg-[url('/wp-content/themes/rideped/assets/scooters-bg-line-ltr.svg')]">
+        class="relative hero-section md:flex md:items-center  w-full md:h-[964px]">
         <div class="container">
             <div class="flex mt-[40px]  px-[21px] md:px-[0] gap-[40px] md:flex-col">
                 <h3 class="text-black text-5xl font-semibold  capitalize leading-[55.12px] hidden md:flex">
@@ -105,13 +100,7 @@ function get_svg_icon($icon_name)
             $query_args = [
                 'post_type' => 'product',
                 'posts_per_page' => 3,
-                'tax_query' => [
-                    [
-                        'taxonomy' => 'product_cat',
-                        'field' => 'slug',
-                        'terms' => ['scooters', 'scooters-he'],
-                    ],
-                ],
+                'post__in'            => wc_get_featured_product_ids(),
             ];
             $products = new WP_Query($query_args);
 
@@ -132,7 +121,7 @@ function get_svg_icon($icon_name)
                             <?php endif; ?>
                             <div class="product-like-button"></div>
                         </div>
-                        <div class="product-details bg-black flex justify-between items-center justify-center">
+                        <div class="product-details bg-black flex justify-between items-center">
                             <div class="product-bottom-left flex flex-col gap-y-2">
                                 <div class="product-name font-bold"><?php the_title(); ?></div>
                                 <div class="product-price text-gray-400"><?php echo $product->get_price_html(); ?></div>

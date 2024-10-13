@@ -1,79 +1,3 @@
-<style>
-        /* Mobile Header Styles */
-        .mobile-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            background-color: #222;
-            color: #fff;
-        }
-        .header-left, .header-right {
-            flex: 1;
-        }
-        .header-center {
-            flex: 2;
-            text-align: center;
-        }
-        .site-title {
-            margin: 0;
-            font-size: 24px;
-            background: linear-gradient(to right, #FFA500, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .menu-toggle, .search-toggle {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px 0;
-        }
-        .cart-button {
-            background-color: #FFA500;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-        .cart-button i {
-            margin-right: 5px;
-        }
-        .mobile-menu {
-            display: none;
-            background-color: #333;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
-        }
-        .mobile-menu ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .mobile-menu li a {
-            display: block;
-            padding: 15px;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #444;
-        }
-        .mobile-menu.active {
-            display: block;
-        }
-    </style>
-
 <?php
 /**
  * The header for Astra Theme.
@@ -97,12 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php astra_head_top(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php 
+<?php
 if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 	?>
-	 <link rel="profile" href="https://gmpg.org/xfn/11"> 
+	 <link rel="profile" href="https://gmpg.org/xfn/11">
 	 <?php
-} 
+}
 ?>
 <?php wp_head(); ?>
 <?php astra_head_bottom(); ?>
@@ -135,14 +59,14 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 
 
 	<?php
-	// astra_header_before();
+	 astra_header_before();
 
 	// astra_header();
+    get_header('shops');
 
-	// astra_header_after();
+	 astra_header_after();
 
-    get_header('shop');
-    
+
 
 	astra_content_before();
 	?>
