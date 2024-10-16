@@ -1498,7 +1498,7 @@ details summary::-webkit-details-marker {
 
 #content .ast-container {
   padding: 0;
-  max-width: 100% !important;
+  /*max-width: 100% !important;*/
 }
 
 .entry-title {
