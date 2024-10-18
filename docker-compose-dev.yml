@@ -10,6 +10,12 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+
+  redis:
+    image: redis:latest
+    restart: on-failure
+
+
   wordpress:
     depends_on:
       - db
