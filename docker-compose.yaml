@@ -4,8 +4,6 @@ services:
   wordpress:
     build: .
     restart: always
-    env_file:
-      - .env
     depends_on:
       - redis
 

@@ -7,6 +7,8 @@ set -e
 DOMAIN="shop.rideped.co.il"
 EMAIL="bob@proteam.cc"
 GIT_REPO="https://github.com/avioralm/woocomerce.git"
+TEMP_DIR="/tmp/wordpress_temp"
+WP_DIR=wordpress
 
 # Prompt user to confirm or change domain and email
 read -p "Enter your domain name [$DOMAIN]: " input
@@ -38,10 +40,17 @@ sudo usermod -aG docker ec2-user
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-sudo cp wp-config.php wordpress/
-# Clone your Git repository
-git clone $GIT_REPO wordpress
-cd wordpress
+
+# Clone WordPress project from Git to a temporary directory
+sudo rm -rf $TEMP_DIR
+sudo git clone $GIT_REPO $TEMP_DIR
+
+# Move cloned files to the web server directory
+sudo rm -rf $WP_DIR/*
+sudo cp wp-config.php $WP_DIR/
+sudo mv $TEMP_DIR/* $WP_DIR/
+
+cd $WP_DIR
 
 
 
@@ -57,7 +66,7 @@ sudo docker run --rm --name certbot \
             -d $DOMAIN --email $EMAIL --agree-tos --no-eff-email --force-renewal
 
 # Replace placeholders in nginx.conf
-sed -i "s/\${DOMAIN}/$DOMAIN/g" nginx.conf
+sed -i "s/\${DOMAIN}/$DOMAIN/g" ./devops/nginx.conf
 
 
 # Restart all services
